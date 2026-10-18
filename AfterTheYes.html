@@ -29,7 +29,9 @@
   .panel h3{margin-bottom:6px}
 
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;align-items:stretch}
-  .win.mint{border-color:var(--green);background:linear-gradient(135deg,#ffffff 0%,var(--mint) 100%)}
+  .win.mint{display:flex;flex-direction:column;align-items:flex-start;border-color:var(--green);background:linear-gradient(135deg,#ffffff 0%,var(--mint) 100%)}
+  .btn{margin-top:14px;display:inline-flex;padding:9px 18px;border-radius:10px;border:1px solid var(--blue);background:var(--blue);color:#fff;font-size:16px;font-weight:700;text-decoration:none;transition:background .15s ease,border-color .15s ease}
+  .btn:hover,.btn:focus-visible{background:var(--green);border-color:var(--green)}
   .win h3{margin-bottom:6px}
   .contact{display:flex;align-items:center;gap:18px}
   .photo{flex-shrink:0;width:84px;height:84px;border-radius:50%;object-fit:cover;border:1px solid var(--purple)}
@@ -79,7 +81,8 @@
   <div class="duo">
     <div class="win mint">
       <h3>The Pilot protects the relationship.</h3>
-      <p>Stay responsive, reinforce accurate expectations and connect the merchant with the right Propelr resource.</p>
+      <p>Stay responsive, reinforce accurate expectations and connect the merchant with the right Propelr resource. Know how to open a ticket and what response times to expect.</p>
+      <a class="btn" href="https://propelrpay1.sharepoint.com/sites/Employee-Portal/SitePages/Tickets-&amp;-SLAs.aspx" target="_blank" rel="noopener">View Tickets &amp; SLAs</a>
     </div>
     <div class="win">
       <p class="eyebrow">Feeling stuck?</p>
