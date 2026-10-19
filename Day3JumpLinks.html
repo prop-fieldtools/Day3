@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 3 | Jump Links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--blue:#5D70AE;--green:#59A398;--navy:#1B2F5B;--purple:#A6B3D5;--mint:#DAF3EF}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:transparent;width:100%;overflow-x:hidden}
+  body{padding:4px 6px 6px;font-family:Inter,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+
+  .jump{
+    display:grid;grid-template-columns:repeat(7,auto);justify-content:space-between;gap:4px;
+    padding:10px;border:1px solid var(--purple);border-radius:14px;
+    background:transparent;
+  }
+  .jump a{
+    padding:9px 10px;border-radius:9px;text-align:center;
+    color:var(--navy);font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;
+    transition:background .15s ease,color .15s ease;
+  }
+  .jump a:hover{background:var(--mint)}
+  .jump a:focus-visible{outline:3px solid var(--purple);outline-offset:1px}
+  @media (max-width:1100px){.jump{grid-template-columns:repeat(4,1fr);justify-content:stretch}}
+  @media (max-width:600px){.jump{grid-template-columns:repeat(2,1fr)}.jump a{white-space:normal}}
+</style>
+</head>
+<body>
+<nav class="jump" aria-label="Day 3 sections">
+  <a href="https://propelrpay1.sharepoint.com/sites/Training/SitePages/Day-3.aspx#today-s-flight-plan-______________________________________________________________________" target="_top">Flight Plan</a>
+  <a href="https://propelrpay1.sharepoint.com/sites/Training/SitePages/Day-3.aspx#building-your-pipeline-__________________________________________________________________" target="_top">Building Your Pipeline</a>
+  <a href="https://propelrpay1.sharepoint.com/sites/Training/SitePages/Day-3.aspx#the-pitch-_______________________________________________________________________________" target="_top">The Pitch</a>
+  <a href="https://propelrpay1.sharepoint.com/sites/Training/SitePages/Day-3.aspx#follow-up-essentials-____________________________________________________________________" target="_top">Follow-Up Essentials</a>
+  <a href="https://propelrpay1.sharepoint.com/sites/Training/SitePages/Day-3.aspx#the-discovery-appointment-____________________________________________________________" target="_top">The Discovery Appointment</a>
+  <a href="https://propelrpay1.sharepoint.com/sites/Training/SitePages/Day-3.aspx#after-the-yes-___________________________________________________________________________" target="_top">After the Yes</a>
+  <a href="https://propelrpay1.sharepoint.com/sites/Training/SitePages/Day-3.aspx#next-steps-_____________________________________________________________________________" target="_top">Next Steps</a>
+</nav>
+
+<script>
+(function(){
+  var pagePath='/sites/Training/SitePages/Day-3.aspx';
+
+  function jump(url){
+    var parts=url.split('#');
+    var anchor=decodeURIComponent(parts[1]||'');
+
+    // 1. Same SharePoint site: scroll smoothly with no navigation at all.
+    try{
+      var doc=window.top.document;
+      var target=doc.getElementById(anchor)||doc.querySelector('[data-anchor-id="'+anchor+'"],a[name="'+anchor+'"]');
+      if(target){target.scrollIntoView({behavior:'smooth',block:'start'});return;}
+    }catch(err){ /* different domain: fall through */ }
+
+    // 2. Otherwise change only the #anchor on the page that is already open.
+    //    When the address matches the open page exactly, the browser jumps without reloading.
+    var base=parts[0];
+    try{
+      var ref=document.referrer||'';
+      if(ref.indexOf(pagePath)!==-1){base=ref.split('#')[0];}
+    }catch(err){}
+    try{window.top.location.href=base+'#'+parts[1];}
+    catch(err){window.open(base+'#'+parts[1],'_top');}
+  }
+
+  document.querySelectorAll('.jump a').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();jump(a.getAttribute('href'));});
+  });
+})();
+</script>
+</body>
+</html>
